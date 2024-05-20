@@ -1,3 +1,4 @@
+workspace = { members = ["route"] }
 [package]
 name = "axum-next-app"
 version = "0.1.0"
@@ -7,12 +8,12 @@ keywords = ["axum", "web", "database"]
 license = "MIT"
 
 [[bin]]
-name = "app"
-path = "crates/core/main.rs"
-bench = false
+name = "axum-next-app"
+path = "main.rs"
 
 [dependencies]
 toml = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 axum = "0.7.5"
 tokio = { version = "1.37.0", features = ["full"] }
+route = { path = "route" }
