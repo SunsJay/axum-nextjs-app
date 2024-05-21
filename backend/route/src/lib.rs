@@ -1,8 +1,9 @@
 use axum::http::StatusCode;
-use axum::{routing::get, Router};
+use axum::Router;
+use axum::routing::{delete, get, put, post};
 
 pub fn route() -> Router {
-    let user_routes = Router::new().route("/:id", get(|| async { "User" }));
+    let user_routes = Router::new().route("/:id", get(|| async { "Get User" }).delete(|| async { "Delete User" }).post(|| async { "Post User" }).put("Put User"));
     let api_routes = Router::new()
         .nest("/users", user_routes);
 
